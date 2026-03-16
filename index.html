@@ -1,21 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Murder Mystery Game</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Murder Mystery Game</title>
+    <style>
+        /* Fullscreen canvas */
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000; /* fallback */
+            font-family: sans-serif;
+        }
+        #gameCanvas {
+            display: block;
+        }
+        #menu {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            z-index: 10;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-  <div id="menu">
-    <h1>Murder Mystery Town</h1>
-    <button onclick="startNewGame()">New Game</button>
-    <div id="save-options"></div>
-  </div>
-  <canvas id="gameCanvas"></canvas>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r152/three.min.js"></script>
-  <script src="townData.js"></script>
-  <script src="avatarData.js"></script>
-  <script src="saveManager.js"></script>
-  <script src="main.js"></script>
+    <!-- Simple menu -->
+    <div id="menu">
+        <button onclick="startNewGame()">Begin Game</button>
+        <button onclick="resumeGame()">Resume Game</button>
+    </div>
+
+    <!-- Game canvas will be appended by Three.js -->
+    <canvas id="gameCanvas"></canvas>
+
+    <!-- Load Three.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/build/three.min.js"></script>
+    
+    <!-- Load loaders for FBX and GLTF -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/examples/js/loaders/FBXLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.158.0/examples/js/loaders/GLTFLoader.js"></script>
+
+    <!-- Load your main game logic -->
+    <script src="main.js"></script>
 </body>
 </html>
